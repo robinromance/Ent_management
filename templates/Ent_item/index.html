@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>Students Record</h1>
+    <a  href="{% url "logout" %}" style='background: blue; border: none;em; padding: 0.5rem  5rem; color: white; text-decoration: none;'><i>Logout</i></a>
+    <table style="margin: 1rem 0;">
+        <thead>
+        <tr>
+            <th style = 'color:blue;'>
+                <i>Student ID</i>
+            </th>
+            <th style = 'color:blue;'>
+                <i>Student Name</i>
+            </th>
+            <th style = 'color:blue;'>
+                <i>Student Class</i>
+            </th>
+            <th style = 'color:blue;'>
+                <i>Student Address</i>
+            </th>
+            <th></th>
+        </tr>
+        </thead>
+        {% for st in S_data %}
+        <tr>
+            <td><i>{{ st.id }}</i></td>
+            <td><i>{{ st.s_name}}</i></td>    
+            <td><i>{{ st.s_class }}</i></td>           
+            <td><i>{{ st.s_address }}</i></td> 
+            <td><a href="{% url "delete_view" st.id %}" style='border: 1rem; background-color: blue; text-decoration: none; color: white; padding: 0.1rem 1rem;'>&#10007;</a></td>
+            <td><a href="{% url "update_view" st.id %}" style='border: 1rem; background-color: gray; text-decoration: none; color: white; padding: 0.1rem 1rem'>&#10011;</a></td>       
+        </tr>
+        {% endfor %}
+    </table>
+   <a href="{% url "create_view" %}" style='background: blue; border: none;em; padding: 0.5rem  3.5rem; color: white; text-decoration: none;'> <i>Add Students </i></a>
+    
+</body>
+</html>

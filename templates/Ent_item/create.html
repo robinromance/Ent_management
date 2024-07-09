@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load crispy_forms_tags %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    <title>Create</title>
+</head>
+<body>
+    <h3>Add Students</h3>
+    <form style="width: 50%; background-color: gray; padding: 1rem; border-radius:5%;" action="" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input style="background-color: blue; color: white; border: none; padding: 0.5rem 3rem;" type="submit" value="Save">
+    </form>
+</body>
+</html>                                 

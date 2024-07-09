@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style='font-family: Consolas,Menlo,"courier new",monospace;' lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update View</title>
+</head>
+<body>
+    <h3>Update form</h3>
+    <form action="{% url "update_recd" student.id %}" method='POST' 
+    style='text-align: center;
+            display: flex;
+            width: 40%;
+            margin: 0.5rem 1rem;
+            flex-direction: column;
+            background-color: blue;
+            padding:1rem;
+            border-radius: 10%;'> 
+
+        {% csrf_token %}    
+        <label style="padding: 0.5rem; color: white;" for="sname"> Student Name</label>
+        <input name="sname" type="text" value="{{ student.s_name }}" 
+        style="padding: 0.5rem;
+                border: none;">
+
+        <label style="padding: 0.5rem; color: white;" for="sclass"> Student Class</label>
+            <input type="number" name="sclass" value="{{ student.s_class}}"
+            style="padding: 0.5rem;
+                border: none;">
+        
+        <label style="padding: 0.5rem; color: white;" for="saddress"> Student Address</label>
+            <input type="text" name="saddress" value="{{ student.s_address}}"
+            style="padding: 0.5rem;
+                border: none;">
+
+        <input type="submit" value="Submit"
+        style="margin-top: 1rem; 
+                padding: 0.5rem;
+                background-color: orange;
+                border: none;">
+        
+    </form>
+
+</body>
+</html>
